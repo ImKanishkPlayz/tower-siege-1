@@ -23,7 +23,7 @@ function setup() {
   stand1 = new Stand(390,300,250,10);
   stand2 = new Stand(700,200,200,10);
 
-  polygon = new Polygon(300,100);
+  
   polygon = Bodies.circle(50,200,20);
   World.add(world,polygon);
 
