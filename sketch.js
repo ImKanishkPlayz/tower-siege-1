@@ -27,7 +27,7 @@ function setup() {
   polygon = Bodies.circle(50,200,20);
   World.add(world,polygon);
 
-  slingShot = new Slingshot(polygon.body,{x:100, y:200});
+  slingShot = new Slingshot(this.polygon,{x:100, y:200});
  
   //level one
   block1 = new Block(300,275,30,40);
@@ -51,8 +51,20 @@ function setup() {
   //top
   block16 = new Block(390,155,30,40);
 
-
+  block17 = new Block(675, 100, 30, 40);
+  block18 = new Block(705, 100, 30, 40);
+  block19 = new Block(735, 100, 30, 40);
+  block20 = new Block(765, 100, 30, 40);
+  block21 = new Block(645, 100, 30, 40);
   
+  block23 = new Block(675, 50, 30, 40);
+  block24 = new Block(705, 50, 30, 40);
+  block25 = new Block(735, 50, 30, 40);
+
+  block26 = new Block(705, 10, 30, 40);
+ 
+
+
 
 }
 function draw() {
@@ -65,6 +77,9 @@ function draw() {
   ground.display();
   stand1.display();
   stand2.display();
+  fill("gold"); 
+  imageMode(CENTER); 
+  image(polygon_img ,polygon.position.x,polygon.position.y,40,40);
   
   
   strokeWeight(2);
@@ -89,9 +104,30 @@ function draw() {
   block15.display();
   fill("grey");
   block16.display();
-
-  polygon.display();
+  fill("pink");
+  block17.display();
+  block18.display();
+  block19.display();
+  block20.display();
+  block21.display();
+  fill("turquoise");
+  block23.display();
+  block24.display();
+  block25.display();
+  fill("grey");
+  block26.display();
+  
+  
   slingShot.display();
  
 
 }
+
+function mouseDragged(){
+  Matter.Body.setPosition(this.polygon, {x:mouseX, y:mouseY});
+}
+
+function mouseReleased(){
+  slingShot.fly();
+}
+
